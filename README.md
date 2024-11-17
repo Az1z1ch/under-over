@@ -6,56 +6,101 @@
 
 1. Установите Python 3.7+ и pip
 2. Установите зависимости:
-
-```
+```bash
 pip install -r requirements.txt
 ```
-3. Запустите веб-сервер:
+3. Соберите веб-версию:
+```bash
+make web
 ```
-python game.py
-```
-4. Откройте браузер и перейдите по адресу: http://localhost:8000
+4. Запустите веб-сервер и откройте браузер по адресу http://localhost:8000
 
 ### 2. Windows
 
-1. Скачайте и установите Python 3.7+ с официального сайта python.org
-2. Откройте командную строку (cmd) и перейдите в папку с игрой
-3. Установите зависимости:
-```
+1. Установите Python 3.7+ и pip
+2. Установите необходимые инструменты:
+```bash
 pip install -r requirements.txt
+pip install pyinstaller
 ```
-4. Запустите игру:
+3. Соберите исполняемый файл:
+```bash
+make windows
+# или вручную:
+pyinstaller --onefile --windowed --icon=assets/icon.ico game.py
 ```
-python game.py
-```
+4. Запустите игру через `dist/game.exe`
 
 ### 3. Linux
 
-1. Установите Python и pip через менеджер пакетов:
-```
+1. Установите зависимости:
+```bash
+# Ubuntu/Debian
 sudo apt-get update
-sudo apt-get install python3 python3-pip  # для Ubuntu/Debian
-# или
-sudo dnf install python3 python3-pip      # для Fedora
+sudo apt-get install python3 python3-pip python3-dev
+# Fedora
+sudo dnf install python3 python3-pip python3-devel
 ```
-2. Перейдите в папку с игрой и установите зависимости:
-```
+2. Установите инструменты сборки:
+```bash
 pip3 install -r requirements.txt
+pip3 install pyinstaller
 ```
-3. Запустите игру:
+3. Соберите исполняемый файл:
+```bash
+make linux
+# или вручную:
+pyinstaller --onefile game.py
 ```
-python3 game.py
+4. Запустите игру:
+```bash
+./dist/game
 ```
 
 ### 4. Android
 
-1. Установите приложение Pydroid 3 из Google Play Store
-2. В Pydroid откройте файл game.py
-3. Установите зависимости через pip в настройках Pydroid
-4. Нажмите кнопку запуска (▶️) для старта игры
+1. Установите необходимые инструменты:
+```bash
+pip install buildozer
+```
+2. Инициализируйте buildozer:
+```bash
+buildozer init
+```
+3. Соберите APK:
+```bash
+make android
+# или вручную:
+buildozer android debug
+```
+4. Установите полученный APK-файл из папки `bin/` на устройство
+
+## Сборка из исходников
+
+Для сборки из исходников используйте команды:
+```bash
+# Сборка для всех платформ
+make all
+
+# Сборка для конкретной платформы
+make windows
+make linux
+make android
+make web
+```
 
 ## Требования к системе
 
+### Для разработки
 - Python 3.7 или выше
-- Минимум 512MB RAM
-- 100MB свободного места на диске
+- pip
+- make (опционально)
+- 1GB RAM
+- 500MB свободного места
+
+### Для запуска
+- Windows 7/10/11 (64-bit)
+- Ubuntu 18.04+ / Fedora 30+
+- Android 7.0+
+- 512MB RAM
+- 100MB свободного места
