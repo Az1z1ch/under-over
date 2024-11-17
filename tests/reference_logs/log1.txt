@@ -1,0 +1,5 @@
+Player chose OVER, Bet 10, Dice sum 8, Result win
+Player chose UNDER, Bet 20, Dice sum 6, Result win
+Player chose EVEN, Bet 15, Dice sum 7, Result big_win
+Player chose OVER, Bet 25, Dice sum 9, Result win
+Player chose UNDER, Bet 30, Dice sum 5, Result win 

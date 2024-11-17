@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under & Over Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="game-container">
+            <div class="header">
+                <h1>Under & Over</h1>
+                <div class="money-display">
+                    <div class="money-label">Ваш баланс</div>
+                    <div class="money-amount">{{ money }} 💰</div>
+                </div>
+            </div>
+            
+            <form class="bet-form" action="{{ url_for('play') }}" method="post">
+                <div class="bet-section">
+                    <h3>Выберите тип ставки</h3>
+                    <div class="bet-options">
+                        <button type="submit" name="bet_type" value="UNDER" class="bet-button under">
+                            <span class="bet-icon">↓</span>
+                            <span class="bet-text">Under 7</span>
+                            <span class="bet-odds">x2</span>
+                        </button>
+                        <button type="submit" name="bet_type" value="EVEN" class="bet-button even">
+                            <span class="bet-icon">=</span>
+                            <span class="bet-text">Equal 7</span>
+                            <span class="bet-odds">x4</span>
+                        </button>
+                        <button type="submit" name="bet_type" value="OVER" class="bet-button over">
+                            <span class="bet-icon">↑</span>
+                            <span class="bet-text">Over 7</span>
+                            <span class="bet-odds">x2</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bet-amount-section">
+                    <h3>Сумма ставки</h3>
+                    <div class="bet-amount-container">
+                        <input type="number" name="bet_amount" class="bet-amount" min="1" max="{{ money }}" required>
+                        <div class="quick-bets">
+                            <button type="button" class="quick-bet" onclick="setBetAmount(10)">10</button>
+                            <button type="button" class="quick-bet" onclick="setBetAmount(25)">25</button>
+                            <button type="button" class="quick-bet" onclick="setBetAmount(50)">50</button>
+                            <button type="button" class="quick-bet" onclick="setBetAmount({{ money }})">MAX</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-bet">
+                    <span class="submit-icon">🎲</span>
+                    <span>Сделать ставку</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function setBetAmount(amount) {
+            document.querySelector('.bet-amount').value = amount;
+        }
+    </script>
+</body>
+</html> 

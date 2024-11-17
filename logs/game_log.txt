@@ -1,0 +1,9 @@
+Player chose UNDER, Bet 5, Dice sum 7, Result lose
+Player chose EVEN, Bet 7, Dice sum 9, Result lose
+Player chose OVER, Bet 7, Dice sum 8, Result win
+Player chose OVER, Bet 7, Dice sum 5, Result lose
+Player chose UNDER, Bet 7, Dice sum 8, Result lose
+Player chose OVER, Bet 7, Dice sum 12, Result win
+Player chose UNDER, Bet 7, Dice sum 4, Result win
+Player chose UNDER, Bet 7, Dice sum 4, Result win
+Player chose EVEN, Bet 7, Dice sum 6, Result lose
